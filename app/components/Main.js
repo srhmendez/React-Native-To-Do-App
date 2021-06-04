@@ -3,7 +3,7 @@ import Footer from './Footer';
 import ToDoItem from './ToDoItem';
 import { useState } from 'react';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 
 export default function Main() {
 
@@ -12,6 +12,14 @@ export default function Main() {
         { text: 'Nail Interview', key: '2' },
         { text: 'Recieve Job Offer', key: '3'}
     ]);
+
+    {/* Function for clicking on a to do list task, takes the key number and returns the non matching text properties*/}
+    const pressHandler = (key) => {
+        setTodos ((prevTodos) => {
+            return prevTodos.filter(todo => todo.key != key)
+        });
+
+    }
 
   return (
 
@@ -27,7 +35,9 @@ export default function Main() {
                 <FlatList
                 data={todos}
                 renderItem={({ item }) => (
-                    <ToDoItem item={ item } />
+                    <ToDoItem item={ item } 
+                    //passing the pressHandler function into the ToDoItem Component so that it can 
+                    pressHandler={ pressHandler }/>
                 )} />
 
             </View>
@@ -49,7 +59,7 @@ const styles = StyleSheet.create({
     {
         flex:1,
         marginBottom:100,
-        padding:80,
+        padding:40,
         color: '#ddd'
         
     },

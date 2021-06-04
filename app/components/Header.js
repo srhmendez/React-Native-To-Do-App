@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     headerText: {
         color: 'white',
         padding: 10,
-        fontSize: 18,
+        fontSize: 26,
+        fontWeight:700
 
     },
 
