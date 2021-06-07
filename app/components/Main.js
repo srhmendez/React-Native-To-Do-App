@@ -47,8 +47,9 @@ export default function Main() {
         Keyboard.dismiss();
 
     }}>
+        
         <View style={styles.container}> 
-
+        
             <Header />
 
             {/* Main Content (To Do List) */}

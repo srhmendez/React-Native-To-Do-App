@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     {
       alignSelf: 'stretch',
       color:'#fff',
+      bottom:20,
       padding:20,
       backgroundColor:'#252525',
       borderTopWidth :2,
