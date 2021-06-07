@@ -3,7 +3,7 @@ import Footer from './Footer';
 import ToDoItem from './ToDoItem';
 import { useState } from 'react';
 import React from 'react';
-import { StyleSheet, View, FlatList, TouchableWithoutFeedback, Keyboard, Alert} from 'react-native';
+import { StyleSheet, View, FlatList, TouchableWithoutFeedback, Keyboard, Alert, Text} from 'react-native';
 
 export default function Main() {
 
@@ -14,7 +14,7 @@ export default function Main() {
         { text: 'Recieve Job Offer', key: '3'}
     ]);
 
-    /* Function for clicking on a to do list task, takes the key number and returns the non matching text properties*/
+    /* Function for clicking on a to do list task, takes the key number and deletes the matching key number*/
     const pressHandler = (key) => {
         setTodos ((todos) => {
             return todos.filter(todo => todo.key != key)
@@ -54,15 +54,18 @@ export default function Main() {
 
             {/* Main Content (To Do List) */}
             <View style={styles.content}>
-
+                <Text style={styles.tasksTitle}>
+                    Today's Tasks
+                </Text>
                 {/* Form */}
                 <View style={styles.list}>
                     
+                    {/* rendering data from todos array into the flatlist and then passing the to do item as a prop so that it can recieve the styling of the ToDoItem Component */}
                     <FlatList
                     data={todos}
                     renderItem={({ item }) => (
                         <ToDoItem item={ item } 
-                        //passing the pressHandler function into the ToDoItem Component so that it can 
+                        //passing the pressHandler function into the ToDoItem Component so that it can listen for 
                         pressHandler={ pressHandler }/>
                     )} >
                         
@@ -84,7 +87,10 @@ const styles = StyleSheet.create({
         flex: 1,
         
     },
-
+    tasksTitle: 
+    {
+        fontSize:20,
+    },
     content:
     {
         flex:1,               

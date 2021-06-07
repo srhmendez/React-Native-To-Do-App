@@ -16,17 +16,19 @@ export default function Header() {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: '#231F20',
+        backgroundColor: '#ddd',
         alignItems: 'center',
         justifyContent: 'center',
         borderBottomWidth: 10,
         borderBottomColor: '#ddd',
-        paddingTop: 10
+        paddingTop: 10,
+        
 
     },
     headerText: {
-        color: 'white',
+        color: 'black',
         padding: 10,
+        paddingTop:35,
         fontSize: 26,
         fontWeight: "500"
 

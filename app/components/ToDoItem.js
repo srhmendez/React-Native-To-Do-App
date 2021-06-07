@@ -10,7 +10,7 @@ export default function ToDoItem({ item, pressHandler }) {
         <TouchableOpacity onPress={() => pressHandler(item.key)}>
             <View style={styles.toDoTaskObject}>
                 <MaterialIcons style={styles.icon} name="delete" size={18} color='#333' />
-                <Text>{ item.text }</Text>
+                <Text style={styles.todoText}>{ item.text }</Text>
             </View>
         </TouchableOpacity>
     )
@@ -19,6 +19,7 @@ export default function ToDoItem({ item, pressHandler }) {
 const styles = StyleSheet.create({
     toDoTaskObject: {
         padding:16,
+        paddingRight:50,
         marginTop: 16, 
         borderColor: 'green',
         borderWidth: 1, 
@@ -30,5 +31,10 @@ const styles = StyleSheet.create({
     icon:
     {
         marginRight: 20,
+    },
+    todoText:
+    {
+        paddingRight:10,
+        flexWrap:'wrap',
     }
 })
