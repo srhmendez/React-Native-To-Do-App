@@ -56,13 +56,16 @@ export default function Main() {
 
                 {/* Form */}
                 <View style={styles.list}>
+                    
                     <FlatList
                     data={todos}
                     renderItem={({ item }) => (
                         <ToDoItem item={ item } 
                         //passing the pressHandler function into the ToDoItem Component so that it can 
                         pressHandler={ pressHandler }/>
-                    )} />
+                    )} >
+                        
+                    </FlatList>
 
                 </View>
             </View>
@@ -86,7 +89,6 @@ const styles = StyleSheet.create({
         flex:1,               
         padding:40,
         paddingBottom: 180,
-        color: '#ddd',
         height:300
         
     },
